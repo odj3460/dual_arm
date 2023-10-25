@@ -9,7 +9,8 @@
 
     <compiler angle="radian"/>
     <!-- <option timestep="0.002" noslip_iterations="20"/> -->
-    <option timestep="0.002"/>
+    <!-- <option timestep="0.001"/> -->
+    <option timestep='0.0005' iterations="50" tolerance="1e-10" solver="Newton" jacobian="dense" cone="elliptic" noslip_iterations="30" noslip_tolerance="1e-5"/>
     <size nuser_actuator="5"/>
 
     <asset>
@@ -22,6 +23,7 @@
         <mesh name="link6_col" file="../panda_description/meshes/collision/link6.stl"/>
         <mesh name="link7_col" file="../panda_description/meshes/collision/link7.stl"/>
         <mesh name="hand_col" file="../panda_description/meshes/collision/hand.stl"/>
+        <mesh name="finger_col" file="../panda_description/meshes/collision/finger.stl"/>
         <mesh name="link0_viz" file="../panda_description/meshes/visual/link0.stl"/>
         <mesh name="link1_viz" file="../panda_description/meshes/visual/link1.stl"/>
         <mesh name="link2_viz" file="../panda_description/meshes/visual/link2.stl"/>
@@ -31,6 +33,11 @@
         <mesh name="link6_viz" file="../panda_description/meshes/visual/link6.stl"/>
         <mesh name="link7_viz" file="../panda_description/meshes/visual/link7.stl"/>
         <mesh name="hand_viz" file="../panda_description/meshes/visual/hand.stl"/>
+        <mesh name="finger_viz" file="../panda_description/meshes/visual/finger.stl"/>
+
+        <mesh name="box_viz" file="../panda_description/meshes/visual/panda_box.stl"/>
+        <mesh name="tool_viz" file="../panda_description/meshes/visual/franka_tool.stl"/>
+
     </asset>
 
     <default>
@@ -45,12 +52,12 @@
                 <geom contype="1" conaffinity="1" group="3" type="mesh" rgba=".5 .6 .7 1"/>
             </default>
             <default class="panda_arm">
-                <joint damping="100"/>
+                <joint damping="400"/>
             </default>
-             <default class="panda_forearm">
-                <joint damping="10"/>
+            <default class="panda_forearm">
+                <joint damping="50"/>
             </default>
-             <default class="panda_finger">
+            <default class="panda_finger">
                 <joint damping="100" armature='5'/>
                 <geom friction="1 0.5 0.0001" solref="0.01 1" solimp="0.8 0.9 0.001" margin="0.001" user="0" rgba="0.5 0.6 0.7 .4" contype="1" conaffinity="0" condim="6" group="3" />
                 <position user="1002 40 2001 -0.0001 0.0001"/>

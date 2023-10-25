@@ -16,13 +16,39 @@
             <geom size="0.2 4.0 0.6" type="box" />
             <site name="FT" pos="0 0 0"/>
         </body> -->
+        
+        <!-- <include file="assets/chain0_nogripper_end.xml"/>
+        <include file="assets/chain1_nogripper_end.xml"/> -->
+        <include file="assets/chain0_gripper_end.xml"/>
+        <include file="assets/chain1_gripper_end.xml"/>
 
+        <body name="objectbox" pos="0 0 0">
+            <joint type="free"/>
+            <inertial pos="0.6 0 0.151" mass="10" diaginertia="0.01 0.01 0.01" />
+            <!-- main box -->
+            <geom class="panda_col" pos="0.6 0 0.15" size="0.15 0.23 0.15" type="box" /> 
+            <geom class="panda_viz" pos="0.6 0 0.15" size="0.15 0.23 0.15" type="box" rgba="0.2 0.2 1 1"/>
+                <!-- right upbox -->
+            <geom class="panda_col" pos="0.6 0.18 0.3125" size="0.03 0.03 0.0125" type="box" />
+            <geom class="panda_viz" pos="0.6 0.18 0.3125" size="0.03 0.03 0.0125" type="box" rgba="0.4 0.2 1 1"/>
+            <geom class="panda_col" pos="0.6 0.18 0.345" size="0.03 0.02 0.02" type="box" />
+            <geom class="panda_viz" pos="0.6 0.18 0.345" size="0.03 0.02 0.02" type="box" rgba="0.3 0.2 1 1"/>
+                <!-- left upbox -->
+            <geom class="panda_col" pos="0.6 -0.18 0.3125" size="0.03 0.03 0.0125" type="box" />
+            <geom class="panda_viz" pos="0.6 -0.18 0.3125" size="0.03 0.03 0.0125" type="box" rgba="0.2 0.2 1 1"/>
+            <geom class="panda_col" pos="0.6 -0.18 0.345" size="0.03 0.02 0.02" type="box" />
+            <geom class="panda_viz" pos="0.6 -0.18 0.345" size="0.03 0.02 0.02" type="box" rgba="0.3 0.2 1 1"/>
 
-        <include file="assets/chain0_nogripper.xml"/>
-        <include file="assets/chain1_nogripper.xml"/>
+  
+    
+        </body>
+
     </worldbody>
 
-    <include file='assets/actuator0_nogripper.xml'/>
-    <include file='assets/actuator1_position_nogripper.xml'/>
+    <!-- <include file='assets/actuator0_nogripper.xml'/>
+    <include file='assets/actuator1_nogripper.xml'/> -->
+
+    <include file='assets/actuator0_position_gripper.xml'/>
+    <include file='assets/actuator1_position_gripper.xml'/>
 
 </mujoco>
